@@ -6,7 +6,7 @@ export default function Header() {
     <div className="w-full flex items-center px-2 py-4 bg-white h-20 shadow-sm">
       <div className="w-full flex items-center justify-between max-w-7x1 mx-auto">
         <Link href={"/"}>
-          <h1 className="font-bold text-2x1 pl-1 hover:tracking-widest duration-300">
+          <h1 className="font-bold text-2x1 hover:tracking-widest duration-300">
             <span className="text-blue-500">Dev</span>
             CONTROLE
           </h1>
