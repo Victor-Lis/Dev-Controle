@@ -25,12 +25,12 @@ export default async function Dashboard() {
 
 
         <table className="min-w-full my-2">
-          <thead className='border-b-2 border-b-slate-200 py-5 bg-slate-300'>
+          <thead className='border-b-2 bg-gray-100 py-5'>
             <tr>
               <th className="font-medium text-left pl-1">CLIENTE</th>
-              <th className="font-medium text-left hidden sm:block my-auto">DATA CADASTRO</th>
+              <th className="font-medium text-left hidden md:table-cell">DATA CADASTRO</th>
               <th className="font-medium text-left">STATUS</th>
-              <th className="font-medium text-left">#</th>
+              <th className="font-medium text-right">#</th>
             </tr>
           </thead>
           <tbody>
