@@ -10,19 +10,49 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Customer {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  phone      String
+  email      String
+  address    String?
+  created_at DateTime? @default(now())
+  updated_at DateTime? @default(now())
+
+  userId String? @db.ObjectId
+  User   User?   @relation(fields: [userId], references: [id])
+
+  tickets Ticket[]
+}
+
+model Ticket {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  description String
+  status      String
+  created_at  DateTime? @default(now())
+  updated_at  DateTime? @default(now())
+
+  customerId String?   @db.ObjectId
+  customer   Customer? @relation(fields: [customerId], references: [id])
+
+  userId String? @db.ObjectId
+  User   User?   @relation(fields: [userId], references: [id])
+}
+
 model Account {
-  id                 String  @id @default(auto()) @map("_id") @db.ObjectId
-  userId             String  @db.ObjectId
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String?  @db.String
-  access_token       String?  @db.String
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String?  @db.String
-  session_state      String?
+  id                String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId            String  @db.ObjectId
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.String
+  access_token      String? @db.String
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.String
+  session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -45,6 +75,9 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+
+  tickets   Ticket[]
+  customers Customer[]
 }
 
 model VerificationToken {
