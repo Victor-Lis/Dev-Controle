@@ -12,7 +12,6 @@ export default async function NewCustomer() {
     redirect("/")
   }
 
-
   return (
     <Container>
       <main className="flex flex-col mt-9 mb-2">
@@ -23,7 +22,7 @@ export default async function NewCustomer() {
           <h1 className="text-3xl font-bold">Novo cliente</h1>
         </div>
 
-        <NewCustomerForm />
+        <NewCustomerForm userId={session.user.id}/>
 
       </main>
     </Container>
