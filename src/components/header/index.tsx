@@ -44,7 +44,7 @@ export default function Header() {
             </Link>
 
             <button onClick={handleLogout}>
-              <FiLogOut size={24} color="#4b5563" />
+              <FiLogOut size={24} color="#ff3a13" />
             </button>
           </div>
         )}
