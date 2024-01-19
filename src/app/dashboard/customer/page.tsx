@@ -10,7 +10,6 @@ export default async function Customer() {
     redirect("/")
   }
 
-
   return (
     <Container>
       <main>
