@@ -1,7 +1,7 @@
 
 # Dev Controle - Em desenvolvimento...
 
-Esse é mais um projeto utilizando NextJS, TailwindCSS e Typescript.
+Esse é mais um projeto utilizando NextJS, TailwindCSS e Typescript. Além desses que venho usando bastante com NextJS, também estou trabalhando com Prisma Schema(um velho conhecido meu) e o Mongo DB Atlas, que já queria mexer há um tempo.
 
 É projeto até aqui mais completo do curso do Sujeito Programador, ainda está em desenvolvimento, mas já aprendi muitas coisas!
 
