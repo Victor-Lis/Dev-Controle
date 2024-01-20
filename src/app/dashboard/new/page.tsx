@@ -15,12 +15,29 @@ export default function NewTicket() {
           <h1 className="text-3xl font-bold"> </h1>
         </div>
 
-        <form>
+        <form className="flex flex-col mt-6">
             <label className="mb-1 font-medium text-lg">Nome do chamado</label>
             <input
+                className="w-full border-2 rounded-md px-2 mb-2 h-11"
                 type="text"
                 required
             />
+            <label className="mb-1 font-medium text-lg">Descreva o problema</label>
+            <textarea
+                className="w-full border-2 rounded-md px-2 mb-2 h-24 resize-y"
+                required
+            ></textarea>
+
+            <label className="mb-1 font-medium text-lg">Adicione o cliente</label>
+            <select
+                className="w-full border-2 rounded-md px-2 mb-2 h-11 bg-white"
+                required
+            >
+
+              <option value="cliente1">Cliente 1</option>
+
+            </select>
+
         </form>
 
       </main>
