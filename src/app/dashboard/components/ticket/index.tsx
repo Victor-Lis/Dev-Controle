@@ -47,7 +47,7 @@ export function TicketItem({ ticket, customer }: TicketItemProps) {
         <span className="bg-green-500 px-2 py-1 rounded">{ticket.status}</span>
       </td>
       <td className="text-right">
-        <button className="mr-2" onClick={handleChangeStatus}>
+        <button className="mr-3" onClick={handleChangeStatus}>
           <FiCheckSquare size={24} color="#131313" />
         </button>
         <button>
