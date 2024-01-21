@@ -4,7 +4,10 @@ import { TicketProps } from "@/@types/ticket";
 import { CustomerProps } from "@/@types/customer";
 import { api } from "@/lib/api";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useContext, useState } from "react";
+
+import { ModalContext } from '@/providers/modal'
+
 interface TicketItemProps {
   ticket: TicketProps;
   customer: CustomerProps | null;
@@ -13,6 +16,7 @@ interface TicketItemProps {
 export function TicketItem({ ticket, customer }: TicketItemProps) {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const { handleModalVisible, setDetailTicket } = useContext(ModalContext)
 
   async function handleChangeStatus() {
     if (!loading) {
@@ -32,6 +36,14 @@ export function TicketItem({ ticket, customer }: TicketItemProps) {
     }
   }
 
+  function handleOpenModal(){
+    handleModalVisible()
+    setDetailTicket({
+      ticket,
+      customer,
+    })
+  }
+
   return (
     <tr className=
     {!loading 
@@ -41,16 +53,16 @@ export function TicketItem({ ticket, customer }: TicketItemProps) {
     >
       <td className="text-left pl-1">{ticket?.name}</td>
       <td className="text-left hidden md:table-cell">
-        {ticket.created_at?.toLocaleDateString("pt-br")}
+        {ticket.updated_at?.toLocaleDateString("pt-br")}
       </td>
       <td className="text-left">
         <span className="bg-green-500 px-2 py-1 rounded">{ticket.status}</span>
       </td>
-      <td className="text-right">
+      <td className="text-left">
         <button className="mr-3" onClick={handleChangeStatus}>
           <FiCheckSquare size={24} color="#131313" />
         </button>
-        <button>
+        <button onClick={handleOpenModal}>
           <FiFile size={24} color="#3b82f6" />
         </button>
       </td>

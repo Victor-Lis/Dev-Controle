@@ -20,6 +20,9 @@ export default async function Dashboard() {
     },
     include: {
       customer: true
+    },
+    orderBy: {
+      updated_at: 'asc'
     }
   })
 
@@ -40,7 +43,7 @@ export default async function Dashboard() {
               <th className="font-medium text-left pl-1">CLIENTE</th>
               <th className="font-medium text-left hidden md:table-cell">DATA CADASTRO</th>
               <th className="font-medium text-left">STATUS</th>
-              <th className="font-medium text-right">#</th>
+              <th className="font-medium text-left">#</th>
             </tr>
           </thead>
           <tbody>
