@@ -3,7 +3,7 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
-import { TicketItem } from '@/app/dashboard/components/ticket'
+import { TicketItem } from '@/app/dashboard/components/Ticket'
 import prismaClient from '@/lib/prisma'
 
 export default async function Dashboard() {

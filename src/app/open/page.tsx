@@ -1,12 +1,13 @@
 "use client";
 
-import { Input } from "@/components/input";
+import { Input } from "@/components/Input";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-
-import { FiSearch } from "react-icons/fi";
 import { useState } from "react";
+
+import { FiSearch, FiX } from "react-icons/fi";
+import FormTicket from "./components/FormTicket";
 
 const schema = z.object({
   email: z
@@ -32,10 +33,12 @@ export default function OpenTicket() {
     resolver: zodResolver(schema),
   });
 
-  const [customer, setCustomer] = useState<CustomerDataInfo | null>({
-    name: "Jesus",
-    id: "1"
-  });
+  const [customer, setCustomer] = useState<CustomerDataInfo | null>(null);
+
+  function handleClearCustomer(){
+    setCustomer(null)
+    setValue("email", "")
+  }
 
   return (
     <div className="w-full max-w-2xl mx-auto px-2">
@@ -43,8 +46,11 @@ export default function OpenTicket() {
 
       <main className="flex flex-col mt-4 mb-2">
         {customer ? (
-          <div>
-
+          <div className="bg-slate-200 py-6 px-4 rounded border-2 flex items-center justify-between">
+            <p><strong>Cliente Selecionado:</strong> {customer.name}</p>
+            <button className="h-11 px-2 flex items-center justify-center rounded" onClick={handleClearCustomer}>
+                <FiX size={30} color="#ff0000"/>
+            </button>
           </div>
         ) : (
           <form className="bg-slate-200 py-6 px-2 rounded border-2">
@@ -64,6 +70,9 @@ export default function OpenTicket() {
             </div>
           </form>
         )}
+
+        {customer !== null && <FormTicket/>}
+
       </main>
     </div>
   );
