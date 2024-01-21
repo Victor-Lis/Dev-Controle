@@ -8,8 +8,6 @@ export default async function Home() {
 
   const session = await getServerSession(authOptions)
 
-  console.log(session)
-
   return (
     <main className="flex items-center flex-col justify-center min-h-[calc(100vh-80px)]">
       <h2 className='font-medium text-2xl mb-2'> Gerencia sua empresa </h2> 
