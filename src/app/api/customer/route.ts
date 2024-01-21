@@ -35,6 +35,34 @@ export async function POST(request: Request){
 
 }
 
+// read
+export async function GET(request: Request){
+    const { searchParams } = new URL(request.url)
+    const customerEmail = searchParams.get("email")
+
+    if(!customerEmail || customerEmail === ""){
+        return NextResponse.json({ error: "Customer not found" }, {status: 400})
+    }
+
+    console.log(customerEmail)
+
+    try {
+        
+        const customer = await prismaClient.customer.findFirst({
+            where: {
+                email: customerEmail,
+            }
+        })
+
+        console.log(customer)
+        return NextResponse.json(customer)
+
+    } catch (error) {
+        return NextResponse.json({ error: "Customer not found" }, {status: 400})
+    }
+}
+
+// delete
 export async function DELETE(request: Request){
 
     const session = await getServerSession(authOptions)

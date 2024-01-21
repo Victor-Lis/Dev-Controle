@@ -8,6 +8,7 @@ import { useState } from "react";
 
 import { FiSearch, FiX } from "react-icons/fi";
 import FormTicket from "./components/FormTicket";
+import { api } from "@/lib/api";
 
 const schema = z.object({
   email: z
@@ -28,6 +29,7 @@ export default function OpenTicket() {
     register,
     handleSubmit,
     setValue,
+    setError,
     formState: { errors },
   } = useForm<FormData>({
     resolver: zodResolver(schema),
@@ -35,9 +37,27 @@ export default function OpenTicket() {
 
   const [customer, setCustomer] = useState<CustomerDataInfo | null>(null);
 
-  function handleClearCustomer(){
-    setCustomer(null)
-    setValue("email", "")
+  function handleClearCustomer() {
+    setCustomer(null);
+    setValue("email", "");
+  }
+
+  async function handleSearchCustomer(data: FormData) {
+    try {
+      const response = await api.get("/api/customer", {
+        params: {
+          email: data.email,
+        },
+      });
+
+      setCustomer({
+        id: response.data.id,
+        name: response.data.name
+      })
+    } catch (e) {
+        setError("email", { type: "custom", message: "Ops, cliente não encontrado..."})
+        console.log(e)
+    }
   }
 
   return (
@@ -47,13 +67,21 @@ export default function OpenTicket() {
       <main className="flex flex-col mt-4 mb-2">
         {customer ? (
           <div className="bg-slate-200 py-6 px-4 rounded border-2 flex items-center justify-between">
-            <p><strong>Cliente Selecionado:</strong> {customer.name}</p>
-            <button className="h-11 px-2 flex items-center justify-center rounded" onClick={handleClearCustomer}>
-                <FiX size={30} color="#ff0000"/>
+            <p>
+              <strong>Cliente Selecionado:</strong> {customer.name}
+            </p>
+            <button
+              className="h-11 px-2 flex items-center justify-center rounded"
+              onClick={handleClearCustomer}
+            >
+              <FiX size={30} color="#ff0000" />
             </button>
           </div>
         ) : (
-          <form className="bg-slate-200 py-6 px-2 rounded border-2">
+          <form
+            className="bg-slate-200 py-6 px-2 rounded border-2"
+            onSubmit={handleSubmit(handleSearchCustomer)}
+          >
             <div className="flex flex-col gap-3">
               <Input
                 name="email"
@@ -63,7 +91,10 @@ export default function OpenTicket() {
                 register={register}
               />
 
-              <button className="bg-blue-500 flex flex-row gap-3 h-11 items-center justify-center text-white font-bold rounded hover:opacity-80 duration-300">
+              <button
+                type="submit"
+                className="bg-blue-500 flex flex-row gap-3 h-11 items-center justify-center text-white font-bold rounded hover:opacity-80 duration-300"
+              >
                 Procurar cliente
                 <FiSearch size={24} color="#fff" />
               </button>
@@ -71,8 +102,7 @@ export default function OpenTicket() {
           </form>
         )}
 
-        {customer !== null && <FormTicket/>}
-
+        {customer !== null && <FormTicket />}
       </main>
     </div>
   );
