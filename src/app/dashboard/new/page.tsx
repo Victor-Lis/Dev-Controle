@@ -5,6 +5,7 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
 import { redirect } from 'next/navigation'
 import prismaClient from '@/lib/prisma'
+import prisma from "@/lib/prisma";
 
 export default async function NewTicket() {
   const session = await getServerSession(authOptions);
@@ -26,14 +27,21 @@ export default async function NewTicket() {
     const description = formData.get("description")
     const customerId = formData.get("customer")
 
-    console.log("Name: ", name)
-    console.log("Description: ", description)
-    console.log("Customer ID: ", customerId)
-
     if(!name || !description || !customerId){
       return
     }
 
+    const newTicket = await prismaClient.ticket.create({
+      data:{
+        name: name as string,
+        description: description as string,
+        customerId: customerId as string,
+        userId: session?.user.id,
+        status: "ABERTO"
+      }
+    })
+
+    redirect("/dashboard");
   }
 
   return (
