@@ -1,7 +1,17 @@
+import { authOptions } from "@/lib/auth";
 import { Container } from "@/styled-components/container";
+import { getServerSession } from "next-auth";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
-export default function NewTicket() {
+export default async function NewTicket() {
+
+  const session = await getServerSession(authOptions)
+
+  if (!session || !session.user) {
+    redirect("/")
+  }
+
   return (
     <Container>
       <main className="mt-9 mb-2">
