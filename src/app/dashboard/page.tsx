@@ -3,10 +3,10 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
-import { TicketItem } from '@/app/dashboard/components/Ticket'
+import { TicketItem } from '@/app/dashboard/components/ticket'
 import prismaClient from '@/lib/prisma'
 
-import { ButtonRefresh } from './components/Button'
+import { ButtonRefresh } from './components/button'
 
 export default async function Dashboard() {
   const session = await getServerSession(authOptions)

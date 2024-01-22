@@ -3,7 +3,7 @@ import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth";
 import Link from "next/link"
 import { redirect } from "next/navigation";
-import { NewCustomerForm } from '../components/Form'
+import { NewCustomerForm } from '../components/form'
 
 export default async function NewCustomer() {
   const session = await getServerSession(authOptions)

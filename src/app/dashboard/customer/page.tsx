@@ -4,7 +4,7 @@ import { getServerSession } from 'next-auth'
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
 
-import { CardCustomer } from './components/Card'
+import { CardCustomer } from './components/card'
 
 import prismaClient from '@/lib/prisma'
 

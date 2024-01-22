@@ -1,5 +1,5 @@
 "use client"
-import { Input } from '@/components/Input'
+import { Input } from '@/components/input'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
