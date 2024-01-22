@@ -5,7 +5,6 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
 import { redirect } from 'next/navigation'
 import prismaClient from '@/lib/prisma'
-import prisma from "@/lib/prisma";
 
 export default async function NewTicket() {
   const session = await getServerSession(authOptions);
