@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { TicketItem } from '@/app/dashboard/components/ticket'
 import prismaClient from '@/lib/prisma'
 
-import { ButtonRefresh } from './components/button'
+import { ButtonRefresh } from '@/app/dashboard/components/button'
 
 export default async function Dashboard() {
   const session = await getServerSession(authOptions)
