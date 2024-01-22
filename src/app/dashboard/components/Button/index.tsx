@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation'
 import { FiRefreshCcw } from 'react-icons/fi'
 
-export default function ButtonRefresh() {
+export function ButtonRefresh() {
   const router = useRouter();
 
   return (
