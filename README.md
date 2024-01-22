@@ -1,5 +1,5 @@
 
-# Dev Controle
+# Dev Controle - Finalizando...
 
 O objetivo do projeto é criar uma plataforma para otimizar chamados para devs.
 
