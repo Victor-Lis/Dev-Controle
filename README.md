@@ -193,6 +193,10 @@ Tela "Open", essa é a única tela tirando a "Home" onde é possível acessar se
 ![Fase 1](https://github.com/Victor-Lis/Dev-Controle/blob/master/project-images/open-1.png)
 ![Fase 2](https://github.com/Victor-Lis/Dev-Controle/blob/master/project-images/open-2.png)
 
+## Conclusão 
+Ao final desse projeto consigo entender melhor o porque de NextJS ser tão utilizado, sem dúvidas é um Framework muito poderoso, arrisco a dizer que é o Framework de React mais potente. 
+Isso me pensar sobre projetos antigos trabalhando unicamente com o React "puro" e pensar em refatora-lós, como o [Study-Plus]()
+
 ## Fonte
 Esse projeto é proveniente do curso [NextJS do zero ao avançado na pratica 2023](https://www.udemy.com/share/104Wus3@JVcovy9zHCiYz6N56LKCINtctiJ3N9527dbnZ8Dmy3kCjUqO9SrXBWiThy8weOHPcA==/) do Sujeito Programador. 
 
