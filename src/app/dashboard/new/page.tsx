@@ -52,7 +52,7 @@ export default async function NewTicket() {
           >
             Voltar
           </Link>
-          <h1 className="text-3xl font-bold">Novo chamados</h1>
+          <h1 className="text-3xl font-bold">Novo chamado</h1>
         </div>
 
         <form className="flex flex-col mt-6" action={handleRegisterTicket}>
