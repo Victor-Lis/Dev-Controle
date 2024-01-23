@@ -195,7 +195,12 @@ Tela "Open", essa é a única tela tirando a "Home" onde é possível acessar se
 
 ## Conclusão 
 Ao final desse projeto consigo entender melhor o porque de NextJS ser tão utilizado, sem dúvidas é um Framework muito poderoso, arrisco a dizer que é o Framework de React mais potente. 
-Isso me pensar sobre projetos antigos trabalhando unicamente com o React "puro" e pensar em refatora-lós, como o Study-Plus, projeto que me senti muito satisfeito ao terminar, pois as funcionalidades são muito bacanas, mas por conta de utilizar apenas React, necessitei dividir em 2 partes, [Front-End](https://github.com/Victor-Lis/StudyPlus-Front-End) e [Back-End](https://github.com/Victor-Lis/StudyPlus-Back-End). Necessidade essa que utilizando NextJS não existiria.
+
+
+Isso me pensar sobre projetos antigos trabalhando unicamente com o React "puro" e pensar em refatora-lós, como o Study-Plus, projeto que me senti muito satisfeito ao terminar, pois as funcionalidades são muito bacanas, mas por conta de utilizar apenas React, necessitei dividir em 2 partes, [Front-End](https://github.com/Victor-Lis/StudyPlus-Front-End) e [Back-End](https://github.com/Victor-Lis/StudyPlus-Back-End). 
+
+Necessidade essa que utilizando NextJS não existiria, o que olhando do ponto de vista atual, me faz pensar afinal que [Study-Plus](https://github.com/Victor-Lis/StudyPlus-Front-End) não é um projeto "tão bacana assim".
+
 
 ## Fonte
 Esse projeto é proveniente do curso [NextJS do zero ao avançado na pratica 2023](https://www.udemy.com/share/104Wus3@JVcovy9zHCiYz6N56LKCINtctiJ3N9527dbnZ8Dmy3kCjUqO9SrXBWiThy8weOHPcA==/) do Sujeito Programador. 
