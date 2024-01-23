@@ -1,5 +1,5 @@
 
-# Dev Controle - Finalizando...
+# Dev Controle
 
 O objetivo do projeto é criar uma plataforma para otimizar chamados para devs.
 
@@ -169,6 +169,29 @@ Deixo abaixo um exemplo de função usando Server Actions.
     redirect("/dashboard");
   }
 ```
+
+## ScreenShots
+Essa é a tela "Home" do projeto, sendo a primeira tela assim que alguém acessar a aplicação.
+![Home](https://github.com/Victor-Lis/Dev-Controle/blob/master/project-images/Home.png)
+
+Essa é a tela "Sign In", sendo através dela realizado o login no projeto através do Google Auth.
+![Sign-In](https://github.com/Victor-Lis/Dev-Controle/blob/master/project-images/Sign-In.png)
+
+A tela "Chamados" é a primeira tela a aparecer após o login, sendo nela exibidos os chamados do usuários
+![Chamados](https://github.com/Victor-Lis/Dev-Controle/blob/master/project-images/chamados-user.png)
+
+Tela Novo Chamado, essa é a tela onde é possível criar um novo chamado
+![Novo Chamado](https://github.com/Victor-Lis/Dev-Controle/blob/master/project-images/criando-chamados-user.png)
+
+A tela "Clientes" é a tela onde é possível ver os clientes do user cadastrados.
+![Clientes](https://github.com/Victor-Lis/Dev-Controle/blob/master/project-images/clientes-user.png)
+
+Tela Novo Cliente, essa é a tela onde é possível cadastrar um novo cliente.
+![Novo Cliente](https://github.com/Victor-Lis/Dev-Controle/blob/master/project-images/criando-clientes-user.png)
+
+Tela "Open", essa é a única tela tirando a "Home" onde é possível acessar sem fazer login, nessa tela é possível um cliente criar um chamado para si próprio.
+![Fase 1](https://github.com/Victor-Lis/Dev-Controle/blob/master/project-images/open-1.png)
+![Fase 2](https://github.com/Victor-Lis/Dev-Controle/blob/master/project-images/open-2.png)
 
 ## Fonte
 Esse projeto é proveniente do curso [NextJS do zero ao avançado na pratica 2023](https://www.udemy.com/share/104Wus3@JVcovy9zHCiYz6N56LKCINtctiJ3N9527dbnZ8Dmy3kCjUqO9SrXBWiThy8weOHPcA==/) do Sujeito Programador. 
