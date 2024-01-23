@@ -19,7 +19,8 @@ O que acaba me fazendo refletir sobre refatorar projetos antigos, agora em Next 
 - Entender sistema de login usando Next-Auth;
 - Entender como trabalhar com autenticações mais complexas usando Next-Auth;
 - Trabalhar com Prisma e Next-Auth;
-- Entender e trabalhar com Server Actions.
+- Entender e trabalhar com Server Actions;
+- Entender e trabalhar com TailwindCSS.
 
 ## Uso/Exemplos
 
@@ -170,6 +171,42 @@ Deixo abaixo um exemplo de função usando Server Actions.
   }
 ```
 
+### TailwindCSS
+
+Honestamente, entendo os fãs de Tailwind e de certa forma suas vantagens, mas ainda não entendo o porque de ser tão famoso, consigo pensar em pontos positivos, como:
+- Algumas animações prontas; 
+- Break-points de maneira mais fácil; 
+- Algumas nomenclaturas mais curtas e fáceis, ao invés de border-bottom-background: (código hexadecimal), ser algo mais simples como: border-b-(cor);
+- Acho que a principal para muitos, não precisar criar nome de classes.
+
+Mas ainda me questiono bastante quanto a clareza do código, afinal inline-css não é algo considerado organizado ou limpo, porém uma biblioteca que faz essa exata mesma função é vista. Nesse fator talvez eu me acostume com o tempo. 
+
+Deixo abaixo um trecho que de um componente trabalhando com Tailwind, inclusive alterando uma class de acordo com o estado de loading:
+```js
+    <tr className=
+    {!loading 
+      ? "border-b-2 border-b-slate-200 h-16 last:border-b-0 bg-slate-100 hover:bg-gray-200 cursor-pointer duration-300"
+      : "border-b-2 border-b-slate-200 h-16 last:border-b-0 bg-gray-200"
+      }
+    >
+      <td className="text-left pl-1">{ticket?.name}</td>
+      <td className="text-left hidden md:table-cell">
+        {ticket.updated_at?.toLocaleDateString("pt-br")}
+      </td>
+      <td className="text-left">
+        <span className="bg-green-500 px-2 py-1 rounded">{ticket.status}</span>
+      </td>
+      <td className="text-left">
+        <button className="mr-3" onClick={handleChangeStatus}>
+          <FiCheckSquare size={24} color="#131313" />
+        </button>
+        <button onClick={handleOpenModal}>
+          <FiFile size={24} color="#3b82f6" />
+        </button>
+      </td>
+    </tr>
+```
+
 ## ScreenShots
 Essa é a tela "Home" do projeto, sendo a primeira tela assim que alguém acessar a aplicação.
 ![Home](https://github.com/Victor-Lis/Dev-Controle/blob/master/project-images/Home.png)
@@ -198,6 +235,7 @@ Ao final desse projeto consigo entender melhor o porque de NextJS ser tão utili
 
 
 Isso me pensar sobre projetos antigos trabalhando unicamente com o React "puro" e pensar em refatora-lós, como o Study-Plus, projeto que me senti muito satisfeito ao terminar, pois as funcionalidades são muito bacanas, mas por conta de utilizar apenas React, necessitei dividir em 2 partes, [Front-End](https://github.com/Victor-Lis/StudyPlus-Front-End) e [Back-End](https://github.com/Victor-Lis/StudyPlus-Back-End). 
+
 
 Necessidade essa que utilizando NextJS não existiria, o que olhando do ponto de vista atual, me faz pensar afinal que [Study-Plus](https://github.com/Victor-Lis/StudyPlus-Front-End) não é um projeto "tão bacana assim".
 
