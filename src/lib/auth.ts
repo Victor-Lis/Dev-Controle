@@ -18,9 +18,7 @@ export const authOptions: AuthOptions = {
         name: string;
         email: string;
       }
-
       return session;
-
     }
   }
 }

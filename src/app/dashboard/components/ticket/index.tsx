@@ -47,7 +47,7 @@ export function TicketItem({ ticket, customer }: TicketItemProps) {
   return (
     <tr className=
     {!loading 
-      ? "border-b-2 border-b-slate-200 h-16 last:border-b-0 bg-slate-100 hover:bg-gray-200 duration-300"
+      ? "border-b-2 border-b-slate-200 h-16 last:border-b-0 bg-slate-100 hover:bg-gray-200 cursor-pointer duration-300"
       : "border-b-2 border-b-slate-200 h-16 last:border-b-0 bg-gray-200"
       }
     >

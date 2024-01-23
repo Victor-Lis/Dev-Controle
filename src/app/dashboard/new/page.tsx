@@ -1,44 +1,43 @@
 import { Container } from "@/styled-components/container";
-import Link from 'next/link'
+import Link from "next/link";
 
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/lib/auth'
-import { redirect } from 'next/navigation'
-import prismaClient from '@/lib/prisma'
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
+import { redirect } from "next/navigation";
+import prismaClient from "@/lib/prisma";
 
 export default async function NewTicket() {
   const session = await getServerSession(authOptions);
-
   if (!session || !session.user) {
-    redirect("/")
+    redirect("/");
   }
 
   const customers = await prismaClient.customer.findMany({
     where: {
-      userId: session.user.id
-    }
-  })
+      userId: session.user.id,
+    },
+  });
 
-  async function handleRegisterTicket(formData: FormData){
-    "use server"
-  
-    const name = formData.get("name")
-    const description = formData.get("description")
-    const customerId = formData.get("customer")
+  async function handleRegisterTicket(formData: FormData) {
+    "use server";
 
-    if(!name || !description || !customerId){
-      return
+    const name = formData.get("name");
+    const description = formData.get("description");
+    const customerId = formData.get("customer");
+
+    if (!name || !description || !customerId) {
+      return;
     }
 
     const newTicket = await prismaClient.ticket.create({
-      data:{
+      data: {
         name: name as string,
         description: description as string,
         customerId: customerId as string,
         userId: session?.user.id,
-        status: "ABERTO"
-      }
-    })
+        status: "ABERTO",
+      },
+    });
 
     redirect("/dashboard");
   }
@@ -47,7 +46,10 @@ export default async function NewTicket() {
     <Container>
       <main className="mt-9 mb-2">
         <div className="flex items-center gap-3">
-          <Link href="/dashboard" className="text-white px-4 py-1 rounded bg-gray-900">
+          <Link
+            href="/dashboard"
+            className="text-white px-4 py-1 rounded bg-gray-900"
+          >
             Voltar
           </Link>
           <h1 className="text-3xl font-bold">Novo chamados</h1>
@@ -60,10 +62,13 @@ export default async function NewTicket() {
             type="text"
             placeholder="Digite o nome do chamado"
             name="name"
+            id="name"
             required
           />
 
-          <label className="mb-1 font-medium text-lg">Descreva o problema</label>
+          <label className="mb-1 font-medium text-lg">
+            Descreva o problema
+          </label>
           <textarea
             className="w-full border-2 rounded-md px-2 mb-2 h-24 resize-none"
             placeholder="Descreva o problema..."
@@ -73,16 +78,15 @@ export default async function NewTicket() {
 
           {customers.length !== 0 && (
             <>
-              <label className="mb-1 font-medium text-lg">Selecione o cliente</label>
+              <label className="mb-1 font-medium text-lg">
+                Selecione o cliente
+              </label>
               <select
                 className="w-full border-2 rounded-md px-2 mb-2 h-11 resize-none bg-white"
                 name="customer"
               >
-                {customers.map(customer => (
-                  <option
-                    key={customer.id}
-                    value={customer.id}
-                  >
+                {customers.map((customer) => (
+                  <option key={customer.id} value={customer.id}>
                     {customer.name}
                   </option>
                 ))}
@@ -92,22 +96,25 @@ export default async function NewTicket() {
 
           {customers.length === 0 && (
             <Link href="/dashboard/customer/new">
-              Você ainda não tem nenhum cliente, <span className="text-blue-500 font-medium">Cadastrar cliente</span>
+              Você ainda não tem nenhum cliente,{" "}
+              <span className="text-blue-500 font-medium">
+                Cadastrar cliente
+              </span>
             </Link>
           )}
 
 
-          <button
-            type="submit"
-            className="bg-blue-500 text-white font-bold px-2 h-11 rounded-md my-4 disabled:bg-gray-400 disabled:cursor-not-allowed"
-            disabled={customers.length === 0}
-          >
-            Cadastrar
-          </button>
+            <button
+              type="submit"
+              className="bg-blue-500 text-white font-bold px-2 h-11 rounded-md my-4 disabled:bg-gray-400 disabled:cursor-not-allowed"
+              disabled={customers.length === 0}
+              id="button"
+            >
+              Cadastrar
+            </button>
 
         </form>
-
       </main>
     </Container>
-  )
+  );
 }
