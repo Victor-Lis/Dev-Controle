@@ -11,6 +11,14 @@ Trabalhar com o Next me faz repensar sobre projetos que construi unicamente com 
 
 O que acaba me fazendo refletir sobre refatorar projetos antigos, agora em Next por conta de todas as vantagens proporcionadas.
 
+## Techs
+<div align="center">
+  <img width="40" height="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="ReactJS">
+  <img width="40" height="40" src="https://github.com/devicons/devicon/blob/master/icons/nextjs/nextjs-original-wordmark.svg" alt="NextJS">
+  <img width="40" height="40x" src="https://github.com/devicons/devicon/blob/master/icons/prisma/prisma-original.svg" alt="Prisma">
+  <img width="40" height="40x" src="https://github.com/devicons/devicon/blob/master/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind">
+</div>
+
 ## Aprendizado
 - Entender a arquitetura do Next;
 - Trabalhar com TypeScript;
